@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <title>Data Efficient Voice Cloning for Neural Singing Synthesis</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<link href="bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../poster.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--<script src="bootstrap/assets/js/ie-emulation-modes-warning.js"></script>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Data Efficient Voice Cloning for Neural Singing Synthesis</h1>
+        <p class="lead">Sound examples</p>   
+        <p class="centered">Contact: {&#109;&#101;&#114;&#108;&#105;&#106;&#110;&#046;&#098;&#108;&#097;&#097;&#117;&#119;,&#032;&#106;&#111;&#114;&#100;&#105;&#046;&#098;&#111;&#110;&#097;&#100;&#097;}&#064;&#117;&#112;&#102;&#046;&#101;&#100;&#117;</p>
+        <p class="centered">To be presented at ICASSP 2019, May 12-17, 2019, Brighton, UK.</p>
+        <p class="lead">
+          <a class="lead_link" href="https://arxiv.org/abs/xxxx.xxxxx">[arXiv preprint]</a>
+        </p>
+        <p class="lead">
+          <a class="lead_link" href="../index.html">[other singing synthesis demos]</a>
+        </p>
+      </div>
+
+      <h3>Demos</h3>
+
+      <h4>English male voice - All Along The Watchtower</h4>
+      <div class="row">
+        <div class="col-md-6">Here the voice timbre is cloned from 2 songs (03:31 total) of the target singer.<br/>The waveform in this demo was generated using a mixed data WaveNet vocoder.</div>
+        <div class="col-md-6">Reference recording of target voice.</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><audio src="files/watchtower_adapt+wnv_01.mp3" controls></audio></div>
+        <div class="col-md-6"><audio src="files/watchtower_ref_01_02.mp3" controls></audio></div>
+      </div>
+
+      <h4>Japanese female voice - Kanade 奏（かなで）</h4>
+      <div class="row">
+        <div class="col-md-6">Here the voice timbre is cloned from 01:49 of pseudo singing (short phrases at a constant pitch).</div>
+        <div class="col-md-6">Reference recording of target voice.</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><audio src="files/k_kanade_bgm.mp3" controls></audio></div>
+        <div class="col-md-6"><audio src="files/k_kanade_ref_01.wav" controls></audio></div>
+      </div>
+
+      <h4>Catalan choir - El Rossinyol</h4>
+      <div class="row">
+        <div class="col-md-6">Synthesized choir consisting of 8 cloned voices (average of 02:22 pseudo singing per voice), and 4 voices trained on full datasets (average of 51:47 pseudo singing per voice).</div>
+        <div class="col-md-6">All 12 voices trained on full datasets (average of 51:47 pseudo singing per voice).</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><audio src="files/choir_mixdown_adapt_2_3rds_02.wav" controls></audio></div>
+        <div class="col-md-6"><audio src="files/choir_mixdown_full_multi_02.wav" controls></audio></div>
+      </div>
+
+      <h4>English female voice - Yellow</h4>
+      <div class="row">
+        <div class="col-md-6">Voice cloned from from 02:14 of natural singing.</div>
+        <div class="col-md-6">Voice cloned from 02:23 of pseudo singing.</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><audio src="files/yellow_nat_target.wav" controls></audio></div>
+        <div class="col-md-6"><audio src="files/yellow_pseudo_target.wav" controls></div>
+      </div>
+
+      <h3>Acknowledgments</h3>
+      <p>The proprietary datasets used in these experiments were generously provided by Zya, Voctro Labs, and Yamaha Corp. Experiments with choir synthesis performed as part of TROMPA project (H2020 770376). We gratefully acknowledge the support of NVIDIA Corporation with the donation of the Titan X Pascal GPU used for this research.</p>
+
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
