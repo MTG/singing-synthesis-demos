@@ -49,6 +49,8 @@ h4 {
     bottom: 0;
     right: 0;
     margin: auto;
+    display: block;
+    width: 220px;
 }
 
 [class*="col-"] {

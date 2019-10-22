@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <title>Sequence-to-sequence Singing Synthesis Using the Feed-forward Transformer</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<link href="bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../poster.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--<script src="bootstrap/assets/js/ie-emulation-modes-warning.js"></script>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Sequence-to-sequence Singing Synthesis Using the Feed-forward Transformer</h1>
+        <p class="lead">Sound examples</p>   
+        <p class="centered">Contact: {&#109;&#101;&#114;&#108;&#105;&#106;&#110;&#046;&#098;&#108;&#097;&#097;&#117;&#119;,&#032;&#106;&#111;&#114;&#100;&#105;&#046;&#098;&#111;&#110;&#097;&#100;&#097;}&#064;&#117;&#112;&#102;&#046;&#101;&#100;&#117;</p>
+        <p class="lead">
+          <!---<a class="lead_link" href="https://arxiv.org/abs/xxx.xxxxx">[arXiv preprint]</a>-->
+        </p>
+        <p class="centered">Submitted to ICASSP 2020, May 4-8, 2020, Barcelona, Spain.</p>
+        <p class="lead">
+          <a class="lead_link" href="../">[other singing synthesis demos]</a>
+        </p>
+      </div>
+
+      <center><img src="images/model_arch.png"/></center>
+
+      <h3>Demos</h3>
+
+      <h4>English male voice - Rio</h4>
+      <p>Feed-forward Transformer Seq2Seq model, with WaveNet vocoder, effects and background music.</p>
+      <p>The model predicts timbre and phonetic timings, F0 is obtained from a reference recording.</p>
+      <div><audio src="files/rio_mixdown.mp3" controls></audio></div>
+      
+      
+      <h3>Comparison</h3>
+      <div class="row">
+        <div class="col-md-3">FFT-NPSS (proposed)</div>
+        <div class="col-md-3">FFT-NPSS w/ ground truth dur.</div>
+        <div class="col-md-3">FFT-NPSS w/o self-attention</div>
+        <div class="col-md-3">AR-NPSS (baseline)</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"><audio src="files/1_Feel_4.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/2_Feel_4.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/3_Feel_4.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/4_Feel_4.mp3" controls></audio></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"><audio src="files/1_Feel_19.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/2_Feel_19.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/3_Feel_19.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/4_Feel_19.mp3" controls></audio></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"><audio src="files/1_Rio_8.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/2_Rio_8.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/3_Rio_8.mp3" controls></audio></div>
+        <div class="col-md-3"><audio src="files/4_Rio_8.mp3" controls></audio></div>
+      </div>
+
+      <h3>Acknowledgments</h3>
+      <p>The proprietary dataset used in these experiments were generously provided by Voctro Labs.</p>
+
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
