@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <title>Sequence-to-sequence Singing Synthesis Using the Feed-forward Transformer</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<link href="bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../poster.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--<script src="bootstrap/assets/js/ie-emulation-modes-warning.js"></script>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container"> 
+
+      <div class="page-header">
+        <h1>Semi-supervised Learning for Singing Synthesis Timbre</h1>
+        <p class="lead">Sound examples</p>   
+        <p class="centered">Contact: {&#106;&#111;&#114;&#100;&#105;&#046;&#098;&#111;&#110;&#097;&#100;&#097;,&#032;&#109;&#101;&#114;&#108;&#105;&#106;&#110;&#046;&#098;&#108;&#097;&#097;&#117;&#119;}&#064;&#117;&#112;&#102;&#046;&#101;&#100;&#117;</p>
+        <!--<p class="lead">
+          <a class="lead_link" href="https://arxiv.org/abs/20xx.xxxxx">[arXiv preprint]</a>
+        </p>-->
+        <p class="centered">Submitted to ICASSP 2021, June 6-11, 2021, Toronto, Canada.</p>
+        <p class="lead">
+          <a class="lead_link" href="../">[other singing synthesis demos]</a>
+        </p>
+
+        <p class="lead">Abstract</p>
+        <p class="centered">We propose a semi-supervised singing synthesizer, which is able to learn new voices from audio data only, without any annotations such as phonetic segmentation. Our system is an encoder-decoder model with two encoders, linguistic and acoustic, and one (acoustic) decoder. In a first step, the system is trained in a supervised manner, using a labelled multi-singer dataset. Here, we ensure that the embeddings produced by both encoders are similar, so that we can later use the model with either acoustic or linguistic input features. To learn a new voice in an unsupervised manner, the pretrained acoustic encoder is used to train a decoder for the target singer. Finally, at inference, the pretrained linguistic encoder is used together with the decoder of the new voice, to produce acoustic features from linguistic input. We evaluate our system with a listening test and show that the results are comparable to those obtained with an equivalent supervised approach.</p>
+
+        <center><img src="images/model_arch.png"/></center>
+
+      </div>
+
+      <h3>Longer demos with music</h3>
+      <p>Demo songs generated with the proposed semi-supervised model trained on a full target dataset (2h7min), consisting of just audio (no other annotations were used).</p>
+      <p>For these demos the model was controlled by a timed phonetic sequence and F0, in this case obtained from a reference recording.</p>
+      <p>The waveform was generated from the predicted mel-spectrogram using a neural vocoder. The final mix has effects and background music.</p>
+
+      <h4>Feel</h4>
+      <div><audio src="files/Feel_Mix-semi.mp3" controls></audio></div>
+      <h4>Fake Plastic Trees</h4>
+      <div><audio src="files/FakePlasticTrees_Mix-semi.mp3" controls></audio></div>
+      
+      
+      <h3>Comparison - Full target dataset (2h7min)</h3>
+      <div class="row">
+        <div class="col-md-4">Reference</div>
+        <div class="col-md-4">Supervised</div>
+        <div class="col-md-4">Semi-supervised</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><audio src="files/AlwaysOnTheRun_03-ref.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/AlwaysOnTheRun_03-super.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/AlwaysOnTheRun_03-semi.mp3" controls></audio></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><audio src="files/FakePlasticTrees_11-ref.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/FakePlasticTrees_11-super.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/FakePlasticTrees_11-semi.mp3" controls></audio></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><audio src="files/Feel_19-ref.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/Feel_19-super.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/Feel_19-semi.mp3" controls></audio></div>
+      </div>
+
+      <h3>Comparison - Voice cloning (3min)</h3>
+      <div class="row">
+        <div class="col-md-4">Reference</div>
+        <div class="col-md-4">Supervised cloning</div>
+        <div class="col-md-4">Semi-supervised cloning</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><audio src="files/AlwaysOnTheRun_03-ref.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/AlwaysOnTheRun_03-clone_super.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/AlwaysOnTheRun_03-clone_semi.mp3" controls></audio></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><audio src="files/FakePlasticTrees_11-ref.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/FakePlasticTrees_11-clone_super.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/FakePlasticTrees_11-clone_semi.mp3" controls></audio></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><audio src="files/Feel_19-ref.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/Feel_19-clone_super.mp3" controls></audio></div>
+        <div class="col-md-4"><audio src="files/Feel_19-clone_semi.mp3" controls></audio></div>
+      </div>
+      
+      <h3>Acknowledgments</h3>
+      <p>This work was funded by TROMPA H2020 No 770376.</p>
+
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
