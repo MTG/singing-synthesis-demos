@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <title>Non-Autoregressive Source-Filter Neural Vocoder</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<link href="bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../poster.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--<script src="bootstrap/assets/js/ie-emulation-modes-warning.js"></script>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+audio::-webkit-media-controls-timeline{
+    display: none;
+}
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display{
+    display: none;
+}
+audio{
+    width: 100px ! important;
+    display: block;
+}
+
+@media (min-width: 768px){
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1  {
+    width: 100%;
+    *width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container"> 
+
+      <div class="page-header">
+        <h1>Non-Autoregressive Source-Filter Neural Vocoder</h1>
+
+        <p class="centered">Contact: {&#109;&#101;&#114;&#108;&#105;&#106;&#110;&#046;&#098;&#108;&#097;&#097;&#117;&#119;,&#106;&#111;&#114;&#100;&#105;&#046;&#098;&#111;&#110;&#097;&#100;&#097;}&#064;&#117;&#112;&#102;&#046;&#101;&#100;&#117;</p>
+        <p class="centered">Not published.</p>
+        <p class="lead">
+          <a class="lead_link" href="../">[other singing synthesis demos]</a>
+        </p>
+
+        <!--<p class="lead">Abstract</p>
+        <p class="centered">...</p>
+        <center><img src="images/model_arch.png"/></center>-->
+      </div>
+
+
+      <h3>Sound examples</h3>
+
+      <p>Comparison of different systems, in all cases the input mel-spectrogram/WORLD features are obtained by analysis of a recording.</p>
+      <p>GT = Reference recording</p>
+      <p>NW = Neural WORLD (our proposed system)</p>
+      <p>NW-NoAdv = Neural WORLD (our proposed system) without adversarial training</p>
+      <p>E-PWG = Excited Parallel WaveGAN (non-autoregressive baseline)</p>
+      <p>WORLD = WORLD vocoder (signal processing based)</p>
+      <p>AR-WNV = Autoregressive WaveNet vocoder</p>
+
+      <h3>Seen singers</h3>
+      <div class="row seven-cols">
+        <div class="col-md-1">Examples</div>
+        <div class="col-md-1">GT</div>
+        <div class="col-md-1">NW</div>
+        <div class="col-md-1">NW-NoAdv</div>
+        <div class="col-md-1">E-PWG</div>
+        <div class="col-md-1">WORLD</div>
+        <div class="col-md-1">AR-WNV</div>
+      </div>
+      <div class="row seven-cols">
+        <div class="col-md-1">Dulcinea</div>
+        <div class="col-md-1"><audio src="files/br_046_Dulcinea2-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/br_046_Dulcinea2-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/br_046_Dulcinea2-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/br_046_Dulcinea2-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/br_046_Dulcinea2-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/br_046_Dulcinea2-ar_wnv.wav" controls></audio></div>
+      </div>
+      <div class="row seven-cols">
+        <div class="col-md-1">Baritone</div>
+        <div class="col-md-1"><audio src="files/ChoirBaritone_002-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ChoirBaritone_002-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ChoirBaritone_002-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ChoirBaritone_002-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ChoirBaritone_002-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ChoirBaritone_002-ar_wnv.wav" controls></audio></div>
+      </div>
+       <div class="row seven-cols">
+        <div class="col-md-1">Feel</div>
+        <div class="col-md-1"><audio src="files/ps_019_Feel-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ps_019_Feel-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ps_019_Feel-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ps_019_Feel-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ps_019_Feel-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/ps_019_Feel-ar_wnv.wav" controls></audio></div>
+      </div>
+       <div class="row seven-cols">
+        <div class="col-md-1">R2</div>
+        <div class="col-md-1"><audio src="files/r_002-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/r_002-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/r_002-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/r_002-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/r_002-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/r_002-ar_wnv.wav" controls></audio></div>
+      </div>
+
+      <h3>Unseen singers</h3>
+      <div class="row seven-cols">
+        <div class="col-md-1">Examples</div>
+        <div class="col-md-1">GT</div>
+        <div class="col-md-1">NW</div>
+        <div class="col-md-1">NW-NoAdv</div>
+        <div class="col-md-1">E-PWG</div>
+        <div class="col-md-1">WORLD</div>
+        <div class="col-md-1">AR-WNV</div>
+      </div>
+      <div class="row seven-cols">
+        <div class="col-md-1">DI 1-17</div>
+        <div class="col-md-1"><audio src="files/di1_17-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_17-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_17-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_17-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_17-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_17-ar_wnv.wav" controls></audio></div>
+      </div>
+      <div class="row seven-cols">
+        <div class="col-md-1">DI 1-18</div>
+        <div class="col-md-1"><audio src="files/di1_18-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_18-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_18-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_18-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_18-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/di1_18-ar_wnv.wav" controls></audio></div>
+      </div>
+      <div class="row seven-cols">
+        <div class="col-md-1">F001-029</div>
+        <div class="col-md-1"><audio src="files/f001_029_01-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_029_01-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_029_01-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_029_01-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_029_01-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_029_01-ar_wnv.wav" controls></audio></div>
+      </div>
+      <div class="row seven-cols">
+        <div class="col-md-1">F001-040</div>
+        <div class="col-md-1"><audio src="files/f001_040_01-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_040_01-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_040_01-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_040_01-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_040_01-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/f001_040_01-ar_wnv.wav" controls></audio></div>
+      </div>
+      <div class="row seven-cols">
+        <div class="col-md-1">OpenCPop 1</div>
+        <div class="col-md-1"><audio src="files/opencpop_sample1_01-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample1_01-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample1_01-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample1_01-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample1_01-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample1_01-ar_wnv.wav" controls></audio></div>
+      </div>
+      <div class="row seven-cols">
+        <div class="col-md-1">OpenCPop 2</div>
+        <div class="col-md-1"><audio src="files/opencpop_sample2_01-gt.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample2_01-nworld.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample2_01-nworld_noadv.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample2_01-epwg.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample2_01-world.wav" controls></audio></div>
+        <div class="col-md-1"><audio src="files/opencpop_sample2_01-ar_wnv.wav" controls></audio></div>
+      </div>
+
+    <p></p>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
