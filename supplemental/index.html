@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+
+    <title>Supplemental material for "Modeling Timbre for Neural Singing Synthesis"</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<link href="bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../poster.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="bootstrap/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--<script src="bootstrap/assets/js/ie-emulation-modes-warning.js"></script>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container"> 
+
+      <div class="page-header">
+        <h1>Supplemental material for "Modeling Timbre for Neural Singing Synthesis"</h1>
+
+        <p class="centered">Contact: &#109;&#101;&#114;&#108;&#105;&#106;&#110;&#046;&#098;&#108;&#097;&#097;&#117;&#119;&#064;&#117;&#112;&#102;&#046;&#101;&#100;&#117;</p>
+        <p class="lead">
+          <a class="lead_link" href="../">[other singing synthesis demos]</a>
+        </p>
+
+      </div>
+
+
+      <h3>Sound examples corresponding to Figure 5.2</h3>
+
+      <center><img src="images/fig52.png"/></center>
+
+      <p>Sub-figure (a) shows an example of the result of the non-autoregressive model without self-attention.</p>
+      <p>Sub-figure (b) shows the same example as a result of the non-autoregressive model with self-attention.</p>
+      <p>The red diamond-shaped markers indicate some places where there are sudden shifts in levels, brightness, and so on. Notice in particular, in (b) a more consistent energy in the fundamental, and cleaner formant transitions compared to (a).</p>
+
+      <div class="row">
+        <div class="col-md-6">(a)</div>
+        <div class="col-md-6">(b)</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><audio src="files/Rio_06-satt=off.wav" controls></audio></div>
+        <div class="col-md-6"><audio src="files/Rio_06-satt=on.wav" controls></audio></div>
+      </div>
+
+    <p></p>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
